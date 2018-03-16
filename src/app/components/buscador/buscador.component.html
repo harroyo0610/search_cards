@@ -1,0 +1,19 @@
+<h1>Buscando: "{{termino}}"</h1>
+<hr>
+<div class="row animated fadeIn fast" *ngIf="rosters.length == 0">
+  <div class="col-md-12">
+    <div class="alert alert-info" role="alert">
+      No existen resultados para: {{termino}}
+    </div>
+  </div>
+</div>
+<div class="card-columns">
+  <div class="card animated fadeIn fast" *ngFor="let roster of rosters; let i = index">
+    <img class="card-img-top" [src]="roster.images" [alt]="roster.nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{ roster.nombre }}</h5>
+      <p class="card-text">{{ roster.posicion }}</p>
+      <a [routerLink]="['/roster',i]" class="btn btn-outline-primary btn-block">Ver más...</a>
+    </div>
+  </div>
+</div>
